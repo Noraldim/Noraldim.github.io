@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Papers - noraldim</title><meta name="Description" content="Papers, capstone report and research notes by Noraldim Kamis on computer vision, neural networks and computer architecture."><meta property="og:title" content="Papers" />
+<meta property="og:description" content="Papers, capstone report and research notes by Noraldim Kamis on computer vision, neural networks and computer architecture." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://noraldim.net/papers/" /><meta property="og:site_name" content="Noraldim Kamis" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Papers"/>
+<meta name="twitter:description" content="Papers, capstone report and research notes by Noraldim Kamis on computer vision, neural networks and computer architecture."/>
+<meta name="application-name" content="noraldim">
+<meta name="apple-mobile-web-app-title" content="noraldim"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://noraldim.net/papers/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="noraldim">
+    <link rel="feed" href="/index.xml" type="application/rss+xml" title="noraldim"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/css/custom.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="noraldim">noraldim</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/" title="Home">Home</a><a class="menu-item" href="/projects/" title="Projects">Projects</a><a class="menu-item active" href="/papers/" title="Papers">Papers</a><a class="menu-item" href="/articles/" title="Articles">Articles</a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="noraldim">noraldim</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/" title="Home">Home</a><a class="menu-item" href="/projects/" title="Projects">Projects</a><a class="menu-item active" href="/papers/" title="Papers">Papers</a><a class="menu-item" href="/articles/" title="Articles">Articles</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page archive nk-wide"><h2 class="single-title animate__animated animate__pulse animate__faster">Papers</h2><p class="nk-lead">Longer-form technical work: the papers, capstone report and research notes behind the projects. Each one links to the document and to the code it was written against.</p><div class="nk-grid"><div class="nk-card">
+  <div class="nk-card-head"><h3>Neural Networks: From the Artificial Neuron to CNN Training</h3><span class="nk-date">2025</span></div>
+  <p class="nk-role">Paper &middot; PDF</p>
+  <p class="nk-desc">A written treatment of neural networks &mdash; the artificial neuron and its weights, edges and activation thresholds, how layers compose into a network, and how that machinery is put to work training convolutional models. Accompanied by a notebook that fine-tunes CNNs on local image datasets, so every idea in the text has running code behind it.</p>
+  <div class="nk-tags"><span>Neural Networks</span><span>CNN</span><span>PyTorch</span><span>Fine-tuning</span></div>
+  <div class="nk-links"><a href="https://github.com/Noraldim/Training-CNN-Models/raw/main/Neural_Network_by_Noraldim.pdf" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf fa-fw" aria-hidden="true"></i>Read the PDF</a><a href="https://github.com/Noraldim/Training-CNN-Models" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-fw" aria-hidden="true"></i>Notebook &amp; data</a></div>
+</div><div class="nk-card">
+  <div class="nk-card-head"><h3>Land Segmentation and Smart City Planning from Satellite Imagery</h3><span class="nk-date">2025 &ndash; 2026</span></div>
+  <p class="nk-role">Senior capstone &middot; Technical report</p>
+  <p class="nk-desc">Semantic segmentation of satellite imagery to identify land suitable for construction, and an algorithmic planner that turns the resulting mask into a city plan. The study compares U-Net against DeepLabV3+ across ResNet, VGG16, Xception and EfficientNet backbones. The data pipeline is the contribution as much as the models: PASTIS panoptic agricultural annotations were aggregated into a binary buildable / non-buildable mask, converted from multi-channel .tif to .npy and then .png, and resized to 160&times;160 so every backbone's pooling stages line up. Output is rendered as an explorable 3D web visualization rather than a flat mask.</p>
+  <div class="nk-tags"><span>Semantic Segmentation</span><span>VM-UNet</span><span>DeepLabV3+</span><span>PASTIS</span><span>Urban Planning</span></div>
+  <div class="nk-links"><a href="https://github.com/Noraldim/Urban-Planner" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-fw" aria-hidden="true"></i>Repository &amp; report</a></div>
+</div><div class="nk-card">
+  <div class="nk-card-head"><h3>BCD Number Generation and Binary Conversion across C, IA32 and x86_64</h3><span class="nk-date">2025</span></div>
+  <p class="nk-role">Computer architecture &middot; Report</p>
+  <p class="nk-desc">One algorithm &mdash; converting decimal BCD values of up to eight digits into binary &mdash; implemented and measured three ways: portable C, IA32 assembly, and x86_64 assembly. The report walks through the conversion of a worked example (532.13022) at each level and compares what the three implementations cost. Written in Turkish.</p>
+  <div class="nk-tags"><span>C</span><span>IA32</span><span>x86_64</span><span>Assembly</span><span>Computer Architecture</span></div>
+  <div class="nk-links"><a href="https://github.com/Noraldim/BM_Architecture" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-fw" aria-hidden="true"></i>Code &amp; report</a><a href="https://www.binary.alpharesearch.me/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>Live demo</a></div>
+</div><div class="nk-card">
+  <div class="nk-card-head"><h3>Kalman-Filter Object Tracking over Video</h3><span class="nk-date">2024</span></div>
+  <p class="nk-role">Research notes &middot; Code</p>
+  <p class="nk-desc">Implementation notes for tracking moving objects across video frames with a Kalman filter, together with the dataset assembled for the experiments and the PyTorch setup used to run them on CPU and on CUDA.</p>
+  <div class="nk-tags"><span>Kalman Filter</span><span>PyTorch</span><span>Object Tracking</span></div>
+  <div class="nk-links"><a href="https://github.com/Noraldim/ASTRON" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-fw" aria-hidden="true"></i>ASTRON</a></div>
+</div></div><h3 class="nk-group">Certifications</h3><div class="nk-facts"><div class="nk-fact"><b>Apr. 2025</b><span>Google IT Support Professional Certificate &mdash; Google</span></div><div class="nk-fact"><b>Nov. 2023</b><span>Containers, Kubernetes, and OpenShift V2 &mdash; IBM</span></div><div class="nk-fact"><b>June 2023</b><span>Data Analysis in Python (Pandas) &mdash; Udemy</span></div></div><p class="nk-note">Shorter pieces and tutorials live under <a href="/articles/">Articles</a>; the code sits in <a href="/projects/">Projects</a>.</p></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;  <a href="/" target="_blank"></a></span>&nbsp;|&nbsp;<span class="license">Noraldim &#128519;</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
