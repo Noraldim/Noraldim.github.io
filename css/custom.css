@@ -404,3 +404,12 @@ a.nk-feature-media:hover { transform: translateY(-3px); border-color: var(--nk-a
   .nk-feature-body h3 { font-size: 1.25rem; }
   .nk-proj-grid { grid-template-columns: 1fr; }
 }
+
+/* home page: same content column as the other pages */
+main.nk-home { width: 88%; max-width: 1120px; margin: 0 auto; }
+@media only screen and (max-width: 1080px) { main.nk-home { width: 92%; } }
+@media only screen and (max-width: 680px) {
+  main.nk-home { width: auto; padding: 0 1rem; }
+  .nk-sections { gap: .5rem; }
+  .nk-section-btn { min-width: 0; padding: .45rem .95rem; font-size: .9rem; }
+}
