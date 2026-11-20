@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Articles - noraldim</title><meta name="Description" content="Articles and technical write-ups by Noraldim Kamis on Linux, Vim, databases, chatbots and machine learning."><meta property="og:title" content="Articles" />
-<meta property="og:description" content="Articles and technical write-ups by Noraldim Kamis on Linux, Vim, databases, chatbots and machine learning." />
+        <title>Articles - noraldim</title><meta name="Description" content="Articles by Noraldim Kamis on Linux, Vim, file handling in C++, building a Telegram chatbot, and setting up a server safely."><meta property="og:title" content="Articles" />
+<meta property="og:description" content="Articles by Noraldim Kamis on Linux, Vim, file handling in C++, building a Telegram chatbot, and setting up a server safely." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://noraldim.net/articles/" /><meta property="og:site_name" content="Noraldim Kamis" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Articles"/>
-<meta name="twitter:description" content="Articles and technical write-ups by Noraldim Kamis on Linux, Vim, databases, chatbots and machine learning."/>
+<meta name="twitter:description" content="Articles by Noraldim Kamis on Linux, Vim, file handling in C++, building a Telegram chatbot, and setting up a server safely."/>
 <meta name="application-name" content="noraldim">
 <meta name="apple-mobile-web-app-title" content="noraldim"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://noraldim.net/articles/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="noraldim">
     <link rel="feed" href="/index.xml" type="application/rss+xml" title="noraldim"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/css/custom.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -21,10 +21,10 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="noraldim">noraldim</a>
+            <a href="/" title="Noraldim Kamis">Noraldim Kamis</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/" title="Home">Home</a><a class="menu-item" href="/projects/" title="Projects">Projects</a><a class="menu-item" href="/papers/" title="Papers">Papers</a><a class="menu-item active" href="/articles/" title="Articles">Articles</a><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search" id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -44,7 +44,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="noraldim">noraldim</a>
+                <a href="/" title="Noraldim Kamis">Noraldim Kamis</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -66,7 +66,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/" title="Home">Home</a><a class="menu-item" href="/projects/" title="Projects">Projects</a><a class="menu-item" href="/papers/" title="Papers">Papers</a><a class="menu-item active" href="/articles/" title="Articles">Articles</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
@@ -76,43 +76,56 @@
     <div class="search-dropdown mobile">
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
-                <div class="container"><div class="page archive nk-wide"><h2 class="single-title animate__animated animate__pulse animate__faster">Articles</h2><p class="nk-lead">Shorter pieces &mdash; things I worked out and wrote down. Some live on this site, some were published elsewhere, and some are write-ups that ship alongside the code.</p><h3 class="nk-group">On this site</h3><div class="nk-row">
-  <div class="nk-row-head"><span class="nk-row-title"><a href="/posts/file/">DOSYA &#304;&#350;LEMLER&#304;</a></span><span class="nk-date">2023-05-31</span></div>
-  <p class="nk-role">Blog &middot; Turkish</p>
-  <p>File handling walked through end to end &mdash; opening, reading, writing and closing files, and the mistakes that bite when you get the modes wrong.</p>
-</div><div class="nk-row">
-  <div class="nk-row-head"><span class="nk-row-title"><a href="/posts/vim/">Why Vim is an Efficient Text Editor</a></span><span class="nk-date">2023-04-17</span></div>
-  <p class="nk-role">Blog</p>
-  <p>The case for modal editing: command mode and insert mode as separate tools, language support and syntax handling, why Vim stays fast on very large files, and what the long climb to proficiency actually buys you.</p>
-</div><div class="nk-row">
-  <div class="nk-row-head"><span class="nk-row-title"><a href="/posts/linux/">Exploring the Power and Impact of Linux</a></span><span class="nk-date">2023-03-23</span></div>
-  <p class="nk-role">Blog</p>
-  <p>Why Linux ended up underneath most of cloud computing, and what that means in practice for anyone running servers on distributions like Ubuntu LTS.</p>
-</div><div class="nk-row">
-  <div class="nk-row-head"><span class="nk-row-title"><a href="/posts/cat/">ChatBot</a></span><span class="nk-date">2023-02-11</span></div>
-  <p class="nk-role">Blog</p>
-  <p>Building a bot that answers in my own voice &mdash; from raw chat exports to a cleaned relational dataset to generated replies.</p>
-</div><h3 class="nk-group">Published elsewhere</h3><div class="nk-row">
-  <div class="nk-row-head"><span class="nk-row-title"><a href="https://dev.to/noraldim/telegram-chatbox-2g0n" target="_blank" rel="noopener noreferrer">TELEGRAM CHATBOX</a></span><span class="nk-date">2023-02-12</span></div>
-  <p class="nk-role">dev.to &middot; 3 min read</p>
-  <p>The full build log for the Telegram chatbot: cleaning chat logs with Python's <code>open</code> and <code>re</code>, stripping timestamps with a compiled digit pattern, then the part that actually catches people out &mdash; PostgreSQL defaults to ASCII, so a database holding Arabic text has to be created <code>WITH ENCODING 'UTF8'</code>. Ends with storing and querying the cleaned data through psycopg2 and pushing the dataset to GitHub.</p>
-</div><h3 class="nk-group">Write-ups in the open</h3><div class="nk-row">
-  <div class="nk-row-head"><span class="nk-row-title"><a href="https://github.com/Noraldim/Urban-Planner" target="_blank" rel="noopener noreferrer">Land Segmentation &amp; Smart City Planning</a></span><span class="nk-date">2026</span></div>
-  <p class="nk-role">GitHub &middot; Urban-Planner</p>
-  <p>How the PASTIS dataset was reshaped into a binary buildable-land problem, how U-Net and DeepLabV3+ compare across four backbones, and how the resulting mask is turned into an actual city plan.</p>
-</div><div class="nk-row">
-  <div class="nk-row-head"><span class="nk-row-title"><a href="https://github.com/Noraldim/Training-CNN-Models" target="_blank" rel="noopener noreferrer">Neural Networks &mdash; notes and definitions</a></span><span class="nk-date">2025</span></div>
-  <p class="nk-role">GitHub &middot; Training-CNN-Models</p>
-  <p>Working notes on artificial neural networks: neurons, edges, weights and thresholds, how layers transform signals, and what &quot;learning from examples&quot; means once you write it down properly. Pairs with the PDF on the Papers page.</p>
-</div><div class="nk-row">
-  <div class="nk-row-head"><span class="nk-row-title"><a href="https://github.com/Noraldim/BM_Architecture" target="_blank" rel="noopener noreferrer">BCD Say&#305; &Uuml;retme ve &#304;kiliye &Ccedil;evirme</a></span><span class="nk-date">2025</span></div>
-  <p class="nk-role">GitHub &middot; BM_Architecture</p>
-  <p>A Turkish write-up of BCD-to-binary conversion implemented in C, IA32 and x86_64, with a worked example and a live browser demo.</p>
-</div><div class="nk-row">
-  <div class="nk-row-head"><span class="nk-row-title"><a href="https://github.com/Noraldim/Server_setUp" target="_blank" rel="noopener noreferrer">Setting up a server the safe way</a></span><span class="nk-date">2023</span></div>
-  <p class="nk-role">GitHub &middot; Server_setUp</p>
-  <p>What a fresh server actually needs before it faces the internet: package updates, rsync, git and ufw, a configured firewall, and PGP key-based root access instead of a password.</p>
-</div><p class="nk-note">Longer technical work is on the <a href="/papers/">Papers</a> page.</p></div></div>
+                <div class="container"><div class="page archive nk-wide"><h2 class="single-title animate__animated animate__pulse animate__faster">Articles</h2><p class="nk-lead">Shorter pieces: things I worked out and wrote down, on Linux, editors, C++ and building small tools.</p><div class="nk-grid nk-paper-grid"><a class="nk-card nk-paper" href="/posts/file/">
+  <div class="nk-cover"><img src="/articles/covers/file.jpg" alt="A code editor showing C++ fstream code that writes to and reads from a file" width="1200" height="675" loading="lazy"></div>
+  <div class="nk-paper-body">
+    <div class="nk-card-head"><h3>File Handling in C++</h3><span class="nk-date">2023-05-31</span></div>
+    <p class="nk-role">Blog &middot; 3 min read</p>
+    <p class="nk-desc">Working with files through <code>&lt;fstream&gt;</code>: opening a file in the right mode, writing, reading line by line, appending, closing, checking for end-of-file, and catching the errors in between.</p>
+    <div class="nk-tags"><span>C++</span><span>fstream</span><span>File I/O</span></div>
+    <span class="nk-more">Read article <i class="fas fa-arrow-right fa-fw" aria-hidden="true"></i></span>
+  </div>
+</a>
+<a class="nk-card nk-paper" href="/posts/vim/">
+  <div class="nk-cover"><img src="/articles/covers/vim.jpg" alt="A Vim window in insert mode listing the reasons to use Vim" width="1200" height="675" loading="lazy"></div>
+  <div class="nk-paper-body">
+    <div class="nk-card-head"><h3>Why Vim is an Efficient Text Editor</h3><span class="nk-date">2023-04-17</span></div>
+    <p class="nk-role">Blog &middot; 2 min read</p>
+    <p class="nk-desc">The case for modal editing: command mode and insert mode as separate tools, language support, why Vim stays fast on very large files, and what the long climb to proficiency actually buys you.</p>
+    <div class="nk-tags"><span>Vim</span><span>Text Editors</span><span>Productivity</span></div>
+    <span class="nk-more">Read article <i class="fas fa-arrow-right fa-fw" aria-hidden="true"></i></span>
+  </div>
+</a>
+<a class="nk-card nk-paper" href="/posts/linux/">
+  <div class="nk-cover"><img src="/articles/covers/linux.jpg" alt="A Linux terminal checking a running nginx service and Docker containers" width="1200" height="675" loading="lazy"></div>
+  <div class="nk-paper-body">
+    <div class="nk-card-head"><h3>Exploring the Power and Impact of Linux</h3><span class="nk-date">2023-03-23</span></div>
+    <p class="nk-role">Blog &middot; 2 min read</p>
+    <p class="nk-desc">Why Linux runs so much of the world: stability under heavy workloads, the security that comes with open source, and its reach from web servers and the cloud to Android phones and IoT devices.</p>
+    <div class="nk-tags"><span>Linux</span><span>Open Source</span><span>Servers</span></div>
+    <span class="nk-more">Read article <i class="fas fa-arrow-right fa-fw" aria-hidden="true"></i></span>
+  </div>
+</a>
+<a class="nk-card nk-paper" href="/posts/cat/">
+  <div class="nk-cover"><img src="/articles/covers/chatbot.jpg" alt="A Telegram chat window with a bot replying to messages" width="1200" height="675" loading="lazy"></div>
+  <div class="nk-paper-body">
+    <div class="nk-card-head"><h3>Building a Telegram Chatbot from My Chat History</h3><span class="nk-date">2023-02-11</span></div>
+    <p class="nk-role">Blog &middot; 4 min read &middot; also on dev.to</p>
+    <p class="nk-desc">A bot that answers in my own voice: cleaning raw chat exports with Python, storing them in PostgreSQL (created with UTF-8 so Arabic text survives), and replying through the Telegram Bot API.</p>
+    <div class="nk-tags"><span>Python</span><span>PostgreSQL</span><span>Telegram Bot API</span></div>
+    <span class="nk-more">Read article <i class="fas fa-arrow-right fa-fw" aria-hidden="true"></i></span>
+  </div>
+</a>
+<a class="nk-card nk-paper" href="https://github.com/Noraldim/Server_setUp" target="_blank" rel="noopener noreferrer">
+  <div class="nk-cover"><img src="/articles/covers/server-setup.jpg" alt="A root terminal updating packages and enabling the ufw firewall on a fresh server" width="1200" height="675" loading="lazy"></div>
+  <div class="nk-paper-body">
+    <div class="nk-card-head"><h3>Setting Up a Server the Safe Way</h3><span class="nk-date">2023</span></div>
+    <p class="nk-role">GitHub write-up &middot; Server_setUp</p>
+    <p class="nk-desc">What a fresh server needs before it faces the internet: package updates, rsync, git and ufw, a configured firewall, and key-based root access instead of a password.</p>
+    <div class="nk-tags"><span>Linux</span><span>ufw</span><span>Security</span></div>
+    <span class="nk-more">Read on GitHub <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i></span>
+  </div>
+</a></div><p class="nk-note">Longer technical work, including the Urban-Planner, ASTRON and BCD write-ups, is on the <a href="/papers/">Papers</a> page.</p></div></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;  <a href="/" target="_blank"></a></span>&nbsp;|&nbsp;<span class="license">Noraldim &#128519;</span></div>
         </div>
@@ -121,5 +134,5 @@
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"search":{"type":"lunr","lunrIndexURL":"/index.json","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

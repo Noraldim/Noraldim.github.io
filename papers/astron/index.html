@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>ASTRON: Real-Time UAV Detection and Trajectory Prediction with YOLOv8 and a Kalman Filter - noraldim</title><meta name="Description" content="A custom YOLOv8 drone detector paired with a constant-velocity Kalman filter. The paper covers the theory, every implementation choice and what each one costs in pixels."><meta property="og:title" content="ASTRON: Real-Time UAV Detection and Trajectory Prediction with YOLOv8 and a Kalman Filter" />
+<meta property="og:description" content="A custom YOLOv8 drone detector paired with a constant-velocity Kalman filter. The paper covers the theory, every implementation choice and what each one costs in pixels." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://noraldim.net/papers/astron/" /><meta property="og:site_name" content="Noraldim Kamis" />
+<meta property="og:image" content="https://noraldim.net/papers/covers/astron-kalman.jpg" /><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://noraldim.net/papers/covers/astron-kalman.jpg"/>
+<meta name="twitter:title" content="ASTRON: Real-Time UAV Detection and Trajectory Prediction with YOLOv8 and a Kalman Filter"/>
+<meta name="twitter:description" content="A custom YOLOv8 drone detector paired with a constant-velocity Kalman filter. The paper covers the theory, every implementation choice and what each one costs in pixels."/>
+<meta name="application-name" content="noraldim">
+<meta name="apple-mobile-web-app-title" content="noraldim"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://noraldim.net/papers/astron/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="noraldim">
+    <link rel="feed" href="/index.xml" type="application/rss+xml" title="noraldim"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/css/custom.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Noraldim Kamis">Noraldim Kamis</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Noraldim Kamis">Noraldim Kamis</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page single nk-paper-page">
+<a class="nk-back" href="/papers/"><i class="fas fa-arrow-left fa-fw" aria-hidden="true"></i> All papers</a>
+<article class="nk-paper-detail">
+  <p class="nk-role">Research article &middot; 2024 &middot; 16 pages &middot; English</p>
+  <h1 class="nk-paper-title">ASTRON: Real-Time UAV Detection and Trajectory Prediction with YOLOv8 and a Kalman Filter</h1>
+  <img class="nk-detail-cover" src="/papers/covers/astron-kalman.jpg" alt="A drone flying a circle: the true path, noisy YOLO detections and the Kalman filter forecast" width="1200" height="675">
+  <div class="nk-actions"><a class="nk-btn nk-btn-primary" href="/papers/pdf/astron-uav-kalman.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open fa-fw" aria-hidden="true"></i>Read the paper</a><a class="nk-btn" href="/papers/pdf/astron-uav-kalman.pdf" download><i class="fas fa-download fa-fw" aria-hidden="true"></i>Download PDF</a><a class="nk-btn" href="https://github.com/Noraldim/ASTRON" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-fw" aria-hidden="true"></i>Source code</a></div>
+  <h2>What it is about</h2>
+  <p class="nk-detail-lead">Detecting a drone in a video tells you where it <em>is</em>. Predicting where it <em>will be</em> is what lets a camera, a gimbal or an interceptor follow it. ASTRON is a compact real-time system that couples a YOLOv8 detector with a discrete-time Kalman filter built on OpenCV. The paper is a complete, self-contained account of it, from the network architecture to the filter maths to simulations that drive the <em>actual</em> OpenCV filter.</p>
+  <div class="nk-stats"><div class="nk-stat"><b>0.956</b><span>mAP@0.5 of the custom <em>uav</em> detector</span></div><div class="nk-stat"><b>3.0&nbsp;M</b><span>detector parameters</span></div><div class="nk-stat"><b>5.7&nbsp;px</b><span>forecast error after tuning (down from 10.7)</span></div><div class="nk-stat"><b>45&times;</b><span>error reduction from a measurement gate</span></div></div>
+  <h2>What the paper covers</h2>
+  <ul class="nk-covers"><li>The YOLOv8 architecture, and a single-class <em>uav</em> detector trained for 100 epochs on the <em>IHA Nesne Tespit</em> dataset: precision 0.927, recall 0.905, mAP@0.5:0.95 of 0.582.</li><li>The Kalman filter derived from first principles and specialised to ASTRON&rsquo;s four-state constant-velocity model.</li><li>What every implementation choice really does: OpenCV&rsquo;s default covariances (Q&nbsp;=&nbsp;R&nbsp;=&nbsp;I, P<sub>0</sub>&nbsp;=&nbsp;0), the <em>correct-then-predict</em> call order that turns the output into a one-step-ahead forecast, and the coupling with a colour-threshold localiser.</li><li>A proof that the filter settles into a steady-state &alpha;&ndash;&beta; tracker with &alpha;&nbsp;=&nbsp;0.822 and &beta;&nbsp;=&nbsp;0.422.</li><li>Reproducible experiments on straight-line motion, a circular manoeuvre and missed detections. The default tuning <em>amplifies</em> detector noise, and a noise ratio r/q&nbsp;&asymp;&nbsp;100 fixes it. When the target is missed, the localiser reports the image origin, which can drag the prediction by more than 500&nbsp;px. A simple gate cuts that to 11&nbsp;px.</li><li>A concrete roadmap from ASTRON to a full tracking-by-detection system.</li></ul>
+  <div class="nk-tags"><span>YOLOv8</span><span>Kalman Filter</span><span>Object Tracking</span><span>OpenCV</span><span>State Estimation</span></div>
+  <div class="nk-actions"><a class="nk-btn nk-btn-primary" href="/papers/pdf/astron-uav-kalman.pdf" target="_blank" rel="noopener"><i class="fas fa-book-open fa-fw" aria-hidden="true"></i>Read the paper</a><a class="nk-btn" href="/papers/pdf/astron-uav-kalman.pdf" download><i class="fas fa-download fa-fw" aria-hidden="true"></i>Download PDF</a><a class="nk-btn" href="https://github.com/Noraldim/ASTRON" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-fw" aria-hidden="true"></i>Source code</a></div>
+</article>
+<nav class="nk-paper-nav" aria-label="More papers"><a class="nk-paper-nav-prev" href="/papers/urban-planner/"><small><i class="fas fa-arrow-left fa-fw" aria-hidden="true"></i> Previous</small><span>Land Segmentation and Smart-City Planning from Satellite Imagery</span></a><a class="nk-paper-nav-next" href="/papers/bcd-radix/"><small>Next <i class="fas fa-arrow-right fa-fw" aria-hidden="true"></i></small><span>From Decimal Digits to Binary Bits: Radix Conversion in C, IA-32 and x86-64</span></a></nav>
+</div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;  <a href="/" target="_blank"></a></span>&nbsp;|&nbsp;<span class="license">Noraldim &#128519;</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"search":{"type":"lunr","lunrIndexURL":"/index.json","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
